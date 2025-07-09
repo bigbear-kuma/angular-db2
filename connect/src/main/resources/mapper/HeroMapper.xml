@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.HeroMapper">
+  <select id="findAll" resultType="com.example.demo.entity.Hero">
+    SELECT id, name FROM hero
+  </select>
+  <select id="findByNameContaining" resultType="com.example.demo.entity.Hero">
+    SELECT * FROM hero
+    WHERE LOWER(name) LIKE CONCAT('%', LOWER(#{name}), '%')
+  </select>
+</mapper>

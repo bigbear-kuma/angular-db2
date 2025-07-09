@@ -1,0 +1,33 @@
+<!--
+<div id="search-component">
+  <label for="search-box">Hero Search</label>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let hero of heroes$ | async" >
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>
+-->
+
+<div id="search-component">
+  <label for="search-box">Hero Search</label>
+  <input #searchBox id="search-box" 
+         (input)="search(searchBox.value)" 
+         placeholder="Search heroes..." />
+
+  <!-- プルダウン形式の検索結果 -->
+  <div class="search-results" *ngIf="heroes$ | async as heroes">
+    <div *ngIf="heroes.length > 0" class="dropdown">
+      <div *ngFor="let hero of heroes" 
+           class="search-result" 
+           routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </div>
+    </div>
+  </div>
+</div>
+

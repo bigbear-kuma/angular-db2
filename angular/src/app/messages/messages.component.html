@@ -1,0 +1,16 @@
+<div>
+  <h2>Messages</h2>
+  <button type="button"
+          class="clear"
+          (click)="messageService.clear()">Clear messages</button>
+  
+  <!-- メッセージがある場合のみメッセージを表示 -->
+  <div *ngIf="messageService.messages.length > 0">
+    <div *ngFor="let message of messageService.messages"> {{message}} </div>
+  </div>
+  
+  <!-- メッセージがない場合の表示（オプション） -->
+  <div *ngIf="messageService.messages.length === 0" class="no-messages">
+    <!-- メッセージはありません -->
+  </div>
+</div>
